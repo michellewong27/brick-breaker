@@ -13,13 +13,22 @@
     <script>
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
-
+        //enables ball to move chaning cordinates
+        var x = canvas.width/2;
+        var y = canvas.height-30;
+        // add small value after every frames been drawn to make ball appear to move
+        var dx = 2;
+        var dy = -2;
         function draw() {
+            //removes previous trace of ball
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.beginPath();
-            ctx.arc(50, 50, 10, 0, Math.PI*2);
+            ctx.arc(x, y, 10, 0, Math.PI*2);
             ctx.fillStyle = "#0095DD";
             ctx.fill();
             ctx.closePath();
+            x += dx;
+            y += dy;
         }
         //will call draw function every 10 milliseconds
         setInterval(draw, 10);
