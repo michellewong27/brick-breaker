@@ -50,13 +50,18 @@
             if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
                 dx = -dx;
             }
-            //If y of ball position is less than zero, change the direction of the movement on the y axis by setting it equal to itself, reversed
-            //Or, if y of ball position is greater than the height, reverse it
-                //If ball moving upwards w speed 2 pixels per frame, now it'll be moving "up" w speed of -2 pixels
-                //which equals moving down at a speed of 2 pixels per frame
-            //subtract by ball radius so it bounces the second it hits the radius NOT the center of ball
-            if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+            //if it doesnt hit the paddle (any walls) it will end game
+            if(y + dy < ballRadius) {
                 dy = -dy;
+            } else if(y + dy > canvas.height-ballRadius) {
+                if(x > paddleX && x < paddleX + paddleWidth) {
+                    dy = -dy;
+                }
+                else {
+                    alert("GAME OVER");
+                    document.location.reload();
+                    clearInterval(interval);
+                }
             }
             //ensuring paddle is within boundaries of page
             if(rightPressed) {
@@ -96,7 +101,7 @@
             }
         } 
         //will call draw function every 10 milliseconds
-        setInterval(draw, 10);
+        var interval = setInterval(draw, 10);
     </script>
 </body>
 </html>
