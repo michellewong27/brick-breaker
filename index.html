@@ -33,6 +33,16 @@
         var brickOffsetTop = 30;
         var brickOffsetLeft = 30;
 
+        // compare every  bricks position w the balls coordinates as each frame is drawn
+        function collisionDetection() {
+        for(var c=0; c<brickColumnCount; c++) {
+            for(var r=0; r<brickRowCount; r++) {
+                var b = bricks[c][r];
+                // calculations
+            }
+        }
+    }
+
         //looping through rows & columns to create new bricks
         var bricks = [];
         for(var c=0; c<brickColumnCount; c++) {
