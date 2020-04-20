@@ -144,8 +144,11 @@
             for(var c=0; c<brickColumnCount; c++) {
                 for(var r=0; r<brickRowCount; r++) {
                     var b = bricks[c][r];
+                    //if brick's status 1 (active), check if collision happens
+                        //if it does set status 0 so brick isn't displayed
                     if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
-                        dy = -dy;
+                    dy = -dy;
+                    b.status = 0;
                     }
                 }
             }
