@@ -33,25 +33,6 @@
         var brickOffsetTop = 30;
         var brickOffsetLeft = 30;
 
-        //loop through bricks & compare each position w/ ball coordinates
-        function collisionDetection() {
-        for(var c=0; c<brickColumnCount; c++) {
-            for(var r=0; r<brickRowCount; r++) {
-                var b = bricks[c][r];
-                // calculate 
-                }
-            }
-        }
-            // compare every  bricks position w the balls coordinates as each frame is drawn
-        function collisionDetection() {
-        for(var c=0; c<brickColumnCount; c++) {
-            for(var r=0; r<brickRowCount; r++) {
-                var b = bricks[c][r];
-                // if  center of ball is inside coordinates of brick then change its direction
-                }
-            }
-        }
-
         //looping through rows & columns to create new bricks
         var bricks = [];
         for(var c=0; c<brickColumnCount; c++) {
@@ -154,6 +135,17 @@
                 leftPressed = false;
             }
         } 
+        
+        function collisionDetection() {
+            for(var c=0; c<brickColumnCount; c++) {
+                for(var r=0; r<brickRowCount; r++) {
+                    var b = bricks[c][r];
+                    if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+                        dy = -dy;
+                    }
+                }
+            }
+        }
         //will call draw function every 10 milliseconds
         var interval = setInterval(draw, 10);
     </script>
