@@ -153,6 +153,12 @@
                         b.status = 0;
                         //each time brick is hit, award score
                         score++;
+                        //user able to win game when all bricks destroyed
+                        if(score == brickRowCount*brickColumnCount) {
+                            alert("YOU WIN, CONGRATULATIONS!");
+                            document.location.reload();
+                            clearInterval(interval); // Needed for Chrome to end game
+                        }
                     }
                 }
             }
