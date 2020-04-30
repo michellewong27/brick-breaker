@@ -33,6 +33,7 @@
         var brickOffsetTop = 30;
         var brickOffsetLeft = 30;
         var score = 0;
+        var lives = 3;
 
         //looping through rows & columns to create new bricks
         var bricks = [];
@@ -145,6 +146,7 @@
 
         function mouseMoveHandler(e) {
             var relativeX = e.clientX - canvas.offsetLeft;
+            //movement will actually be relative to the middle of the paddle
             if(relativeX > 0 && relativeX < canvas.width) {
                 paddleX = relativeX - paddleWidth/2;
             }
@@ -175,6 +177,12 @@
             ctx.font = "16px Arial";
             ctx.fillStyle = "#0095DD";
             ctx.fillText("Score: "+score, 8, 20);
+        }
+
+        function drawLives() {
+            ctx.font = "16px Arial";
+            ctx.fillStyle = "#0095DD";
+            ctx.fillText("Lives: "+lives, canvas.width-65, 20);
         }
         //will call draw function every 10 milliseconds
         var interval = setInterval(draw, 10);
