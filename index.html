@@ -127,6 +127,8 @@
                 if (paddleX < 0){
                     paddleX = 0;
                 }
+            //causes draw func to call itself over & over again
+            requestAnimationFrame(draw);
             }
             //update w dx dy on every frame so ball will be painted in new position on every update
             x += dx;
