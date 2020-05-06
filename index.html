@@ -105,7 +105,6 @@
                     if(!lives) {
                         alert("GAME OVER");
                         document.location.reload();
-                        clearInterval(interval); // Needed for Chrome to end game
                     }
                     else {
                         x = canvas.width/2;
@@ -177,7 +176,6 @@
                         if(score == brickRowCount*brickColumnCount) {
                             alert("YOU WIN, CONGRATULATIONS!");
                             document.location.reload();
-                            clearInterval(interval); // Needed for Chrome to end game
                         }
                     }
                 }
@@ -196,7 +194,7 @@
             ctx.fillText("Lives: "+lives, canvas.width-65, 20);
         }
         //will call draw function every 10 milliseconds
-        var interval = setInterval(draw, 10);
+        draw();
     </script>
 </body>
 </html>
